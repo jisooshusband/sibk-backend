@@ -2,17 +2,13 @@ const express = require('express')
 const Route = express.Router()
 
 const authRouter = require('../modules/auth/authRoutes')
-const movieRouter = require('../modules/movie/movieRoutes')
-const userRouter = require('../modules/user/userRoutes')
-const premiereRouter = require('../modules/premiere/premRoutes')
-const bookingRouter = require('../modules/booking/bookingRoutes')
-const showtimeRouter = require('../modules/showTime/showtimeRoute')
+const studetnRouter = require('../modules/students/studentRoute')
+const penaltyRouter = require('../modules/pelanggaran/route')
+const counsellingRouter = require('../modules/counselling/route')
 
 Route.use('/auth', authRouter)
-Route.use('/movie', movieRouter)
-Route.use('/user', userRouter)
-Route.use('/premiere', premiereRouter)
-Route.use('/booking', bookingRouter)
-Route.use('/showtime', showtimeRouter)
+Route.use('/student', studetnRouter)
+Route.use('/penalty', penaltyRouter)
+Route.use('/counselling', counsellingRouter)
 
 module.exports = Route

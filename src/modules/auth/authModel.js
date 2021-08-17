@@ -2,28 +2,10 @@ const connection = require('../../config/mysql')
 
 module.exports = {
 
-  register: (data) => {
+  getDataConditionStudent: (data) => {
     return new Promise((resolve, reject) => {
       connection.query(
-        'INSERT INTO user SET ?', data, (error, result) => {
-          if (!error) {
-            const newResult = {
-              id: result.insertId,
-              ...data
-            }
-            resolve(newResult)
-          } else {
-            reject(new Error(error))
-          }
-        }
-      )
-    })
-  },
-
-  getDataCondition: (data) => {
-    return new Promise((resolve, reject) => {
-      connection.query(
-        'SELECT * FROM user WHERE ?',
+        'SELECT * FROM siswa WHERE ?',
         data,
         (error, result) => {
           !error
@@ -34,11 +16,39 @@ module.exports = {
     })
   },
 
-  update: (id, data) => {
+  getDataConditionTeacher: (data) => {
     return new Promise((resolve, reject) => {
       connection.query(
-        'UPDATE user SET ? WHERE user_id = ?',
-        [data, id],
+        'SELECT * FROM guru WHERE ?',
+        data,
+        (error, result) => {
+          !error
+            ? resolve(result)
+            : reject(new Error(error))
+        }
+      )
+    })
+  },
+
+  patchStudent: (data, nisn) => {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        'UPDATE siswa SET ? WHERE nisn = ?',
+        [data, nisn],
+        (error, result) => {
+          !error
+            ? resolve(result)
+            : reject(new Error(error))
+        }
+      )
+    })
+  },
+
+  patchTeacher: (data, nip) => {
+    return new Promise((resolve, reject) => {
+      connection.query(
+        'UPDATE guru SET ? WHERE nip = ?',
+        [data, nip],
         (error, result) => {
           !error
             ? resolve(result)

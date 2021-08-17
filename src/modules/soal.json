@@ -1,0 +1,44 @@
+[
+  {
+    "cat": "ANALOGI",
+    "q": "WHITE BOARD : SPIDOL",
+    "c1": "PENSIL : BUKU|X",
+    "c2": "CANVAS : KUAS|Y",
+    "c3": "KERTAS : PENGGARIS|X"
+  },
+  {
+    "cat": "ANALOGI",
+    "q": "POHON : BUAH",
+    "c1": "PAPAN TULIS : DIKTAT|X",
+    "c2": "KUDA : BALAP|X",
+    "c3": "SAPI : SUSU|Y"
+  },
+  {
+    "cat": "ANALOGI",
+    "q": "LAPAR : MAKAN",
+    "c1": "PANAS : DINGIN|X",
+    "c2": "CAPEK : ISTIRAHAT|Y",
+    "c3": "SAPI : SUSU|X"
+  },
+  {
+    "cat": "ANALOGI",
+    "q": "HUJAN : AIR",
+    "c1": "SALJU : ES|Y",
+    "c2": "KUDA : BALAP|X",
+    "c3": "SAPI : SUSU|Y"
+  },
+  {
+    "cat": "ANALOGI",
+    "q": "IMUN : IMUNISASI",
+    "c1": "PERSON : PERSONIFIKASI|Y",
+    "c2": "MISKIN : KAYA|X",
+    "c3": "SAHAM : MODAL|X"
+  },
+  {
+    "cat": "MATEMATIKA",
+    "q": "4, 5, 7, 6, 7, 8. 8, …",
+    "c1": "9|Y",
+    "c2": "6|X",
+    "c3": "20|X"
+  }
+]
