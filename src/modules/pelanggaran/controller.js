@@ -50,7 +50,7 @@ module.exports = {
         pointPelanggaran,
         totalPoint
       )
-
+      console.log({ ...editStudent, ...result })
       return helper.response(res, 200, 'Success', { ...result, ...editStudent })
     } catch (err) {
       console.log(err)

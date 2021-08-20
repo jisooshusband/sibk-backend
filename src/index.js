@@ -19,6 +19,7 @@ app.use(helmet())
 app.use(morgan('dev'))
 app.use('/backend1/api/v1', routerNavigation)
 app.use('/backend1/api', express.static(path.join(__dirname, 'uploads')))
+app.use(express.static(path.join(__dirname, '/public')))
 app.use('/backend1/api', express.static(path.join(__dirname, '../public/report')))
 
 app.listen(port, () => {

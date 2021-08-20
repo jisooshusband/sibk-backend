@@ -14,13 +14,14 @@ Route.post(
   controller.createStudent
 )
 
-Route.get(
-  '/soal/json/', controller.fetch
-)
-
 Route.patch(
   '/update/:nisn',
   controller.updateStudent
+)
+
+Route.get(
+  '/report/all/',
+  controller.generateReport
 )
 
 module.exports = Route

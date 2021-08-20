@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-image: url('./logo.png') !important;
+      }
+      .container {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        padding-left: 30px;
+      }
+      .title {
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 80px;
+        margin-top: 70px;
+      }
+      .info {
+        font-size: 14px;
+        color: #7a7886;
+      }
+      .desc {
+        font-size: 16px;
+        margin-top: -10px;
+      }
+      table, th, td {
+        border: 1px solid black;
+      }
+      table {
+        width: 100%;
+      }
+      .grid-container {
+        display: inline-grid;
+        text-align: center;
+      }
+      .content {
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-size: medium;
+      }
+      .image {
+        width: 100px;
+      }
+      .footer {
+        position: absolute;
+        margin-top: 20rem;
+        right: 5rem;
+      }
+    </style>
+  </head>
+
+  <body class='container'>
+    
+    <div class='grid-container'>
+      <div class='grid-item'>
+        <img class='image' src="https://i.im.ge/2021/08/20/tuhV1.jpg" />
+      </div>
+      <div class='grid-item'>
+        <div>MTS AL HUSNA</div>
+        <div>Jl. Akses UI No. 45 Tugu, Kec. Cimanggis, Kota Depok, Jawa Barat 16451</div>
+        <div>ph. (021) 8724678</div>  
+      </div>
+      <hr />
+    </div>
+
+    <div class="content">
+      <table class="tabel">
+        <tr>
+          <th>NISN</th>
+          <th>Nama Siswa</th>
+          <th>Alamat Siswa</th>
+          <th>Point</th>
+          <th>Kelas</th>
+        </tr>
+    
+        <% for(let i = 0; i < data.length; i++) { %>
+          <tr class="tabel">
+            <td class="tabel"><%= data[i].nisn %></td>
+            <td class="tabel"><%= data[i].nama_siswa %></td>
+            <td class="tabel"><%= data[i].alamat_siswa %></td>
+            <td class="tabel"><%= data[i].point_siswa %></td>
+            <td class="tabel"><%= data[i].kelas_siswa %></td>
+          </tr>
+        <% } %>
+      </table>
+    </div>
+
+    <div class="footer">
+      <p>Yayan Ruhiyan</p>
+      <br />
+      <br />
+      <p>Kepala Sekolah</p>
+    </div>
+
+
+  </body>
+</html>

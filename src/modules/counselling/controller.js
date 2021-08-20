@@ -59,10 +59,14 @@ module.exports = {
   generateReport: async (req, res) => {
     try {
       const data = await model.getAll()
+      for (const i in data) {
+        data[i].tanggal_konsultasi = data[i].tanggal_konsultasi.toString().substring(0, 10)
+      }
+      console.log(data)
       const add = Math.floor(1000 + Math.random() * 9000)
       const fileName = `${add}-report-konseling.pdf`
       ejs.renderFile(
-        path.join(__dirname, '../../templates', 'reportTemplate.ejs'), { data: data },
+        path.join(__dirname, '../../templates', 'counsellingTemplate.ejs'), { data: data },
         (err, data) => {
           if (err) {
             console.log(err)
@@ -72,10 +76,7 @@ module.exports = {
               height: '11.25in',
               width: '8.5in',
               header: {
-                height: '20mm'
-              },
-              footer: {
-                height: '200mm'
+                height: '5mm'
               }
             }
             pdf.create(data, options)

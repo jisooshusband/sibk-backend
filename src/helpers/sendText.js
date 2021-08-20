@@ -1,7 +1,7 @@
 const request = require('request')
 
-const token = 'w4isbvy7boq0oqsl'
-const instanceId = '320810'
+const token = 'xfk594vfsgki2g6b'
+const instanceId = '322497'
 
 const sendText = (purpose, reciver, otp, studentName, violent, deduction, totalPoint) => {
   const otpMail = `

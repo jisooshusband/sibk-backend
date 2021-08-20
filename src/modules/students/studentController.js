@@ -1,9 +1,9 @@
 require('dotenv').config()
 const helper = require('../../helpers/wrapper')
 const model = require('./studentModel')
-const fs = require('fs')
-// const sendText = require('../../helpers/sendText')
-// const salt = bcrypt.genSaltSync(10)
+const path = require('path')
+const pdf = require('html-pdf')
+const ejs = require('ejs')
 
 module.exports = {
 
@@ -72,12 +72,44 @@ module.exports = {
     }
   },
 
-  fetch: async (req, res) => {
+  generateReport: async (req, res) => {
     try {
-      const data = fs.readFIle
-      console.log(exist)
-      console.log(exist)
+      const data = await model.getAllStudents()
+      console.log(data)
+      const add = Math.floor(1000 + Math.random() * 9000)
+      const fileName = `${add}-report-student.pdf`
+      ejs.renderFile(
+        path.join(__dirname, '../../templates', 'studentTemplate.ejs'), { data: data },
+        (err, data) => {
+          if (err) {
+            console.log(err)
+            return helper.response(res, 400, 'Failed export', err)
+          } else {
+            const options = {
+              height: '11.25in',
+              width: '8.5in',
+              header: {
+                height: '5mm'
+              }
+            }
+            pdf.create(data, options)
+              .toFile(path.join(__dirname, '../../../public/report/', fileName),
+                function (err, data) {
+                  if (err) {
+                    console.log(err)
+                    return helper.response(res, 400, 'Failed export', err)
+                  } else {
+                    return helper.response(res, 200, 'Success', {
+                      url: `http://localhost:3001/backend1/api/${fileName}`
+                    })
+                  }
+                }
+              )
+          }
+        }
+      )
     } catch (err) {
+      console.log(err)
       return helper.response(res, 400, 'BAD REQUEST', err)
     }
   }
